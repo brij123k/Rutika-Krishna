@@ -31,6 +31,7 @@ const ScratchCard: React.FC<ScratchCardProps> = ({
   const [isRevealed, setIsRevealed] = useState(false);
   const [scratchPercent, setScratchPercent] = useState(0);
   const [particles, setParticles] = useState<GlitterParticle[]>([]);
+  const [canvasReady, setCanvasReady] = useState(false); // NEW — tracks image load
   const particleIdRef = useRef(0);
   const animationFrameRef = useRef<number>();
 
@@ -126,6 +127,8 @@ const ScratchCard: React.FC<ScratchCardProps> = ({
       ctx.fillStyle = highlightGradient;
       ctx.fill(path);
       ctx.restore();
+
+      setCanvasReady(true); // NEW — reveal canvas only after image is painted
     };
 
   }, [width, height, heartPath]);
@@ -302,12 +305,13 @@ const ScratchCard: React.FC<ScratchCardProps> = ({
         </div>
       </div>
       
-      {/* Gold scratch overlay canvas */}
+      {/* Gold scratch overlay canvas — hidden until image is fully painted */}
       <canvas
         ref={canvasRef}
         width={width}
         height={height}
         className="absolute inset-0 cursor-pointer touch-none z-20"
+        style={{ opacity: canvasReady ? 1 : 0 }} // NEW — no flash
         onMouseDown={handleStart}
         onMouseMove={handleMove}
         onMouseUp={handleEnd}

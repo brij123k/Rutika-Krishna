@@ -259,7 +259,7 @@ const ScratchCard: React.FC<ScratchCardProps> = ({
               fontFamily: "'Playfair Display', 'Bodoni Moda', 'Didot', 'Cormorant Garamond', serif"
             }}
           >
-            
+            14 May, 2026
           </p>
           
           <p 
@@ -271,7 +271,7 @@ const ScratchCard: React.FC<ScratchCardProps> = ({
               fontFamily: "'Playfair Display', 'Bodoni Moda', 'Didot', 'Cormorant Garamond', serif"
             }}
           >
-            14 May, 2026
+            
           </p>
           
           {/* ONLY THIS ELEMENT CHANGED — letterSpacing reduced + clamp font size for mobile */}

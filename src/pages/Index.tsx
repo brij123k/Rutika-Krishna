@@ -28,7 +28,7 @@ const Index = () => {
         className="font-serif text-lg sm:text-xl md:text-2xl tracking-[0.15em] z-10 mt-10 sm:mt-12"
         style={{ color: '#2E2E2E' }}
       >
-        Rutika & Krishna
+        Krishna & Rutika
       </h2>
     </div>
   );
